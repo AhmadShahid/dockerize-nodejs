@@ -1,7 +1,7 @@
 const express = require('express');
 
-var router = express.Router();
-var db = require('../database');
+const router = express.Router();
+const db = require('../database');
 
 router.get('/all', (req, res) => {
   db.Person.findAll()

@@ -6,18 +6,28 @@
     "pm2": "pm2 start processes.json --no-daemon",
     "start": "node ./bin/www",
     "test": "jest",
-    "migrate": "node ./bin/migrate.js"
+    "migrate": "node ./bin/migrate.js",
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "husky": "^6.0.0",
     "morgan": "~1.9.1",
     "pg": "^8.6.0",
     "pm2": "^4.5.6",
     "sequelize": "^6.6.2"
   },
   "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
     "jest": "^27.0.3"
+  },
+  "husky": {
+     "hooks": {
+       "pre-commit": "npm run pretest"
+     }
   }
 }
